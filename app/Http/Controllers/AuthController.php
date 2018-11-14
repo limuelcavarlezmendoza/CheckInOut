@@ -40,7 +40,7 @@ class AuthController extends Controller
         //'device_token' => $request->device_token not required yet.
         //'device_id' => $request->device_id not required yet
         'date_started' => $request->date_started,
-        //'status' => $request->status i dont know if employee will need to provide
+        'status' => 'waiting', 
         'contact_person' => $request->contact_person,
         'contact_person_no' => $request->contact_person_no
       ]);

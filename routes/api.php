@@ -19,7 +19,7 @@ use Illuminate\Http\Request;
           'prefix' => 'employee'
       ], function () {
           //Route::post('register', '\AuthController@registerEmployee');
-          Route::post('register', 'AuthController@registerEmployee');
+          Route::post('register', 'AuthController@registerEmployee');//done
       });
 //-------------------------------------------------------------------------------------
       // route for admin api/superadmin/~
@@ -27,7 +27,7 @@ use Illuminate\Http\Request;
           'prefix' => 'superadmin'
       ], function () {
           Route::post('status', 'SuperAdminController@status');//make on/off admin status
-          Route::get('list/admins', 'SuperAdminController@adminList');
+          Route::get('admins', 'SuperAdminController@adminList');
       });
 //-------------------------------------------------------------------------------------
       // route for admin api/admin/~
@@ -36,16 +36,18 @@ use Illuminate\Http\Request;
       ], function () {
           Route::put('register', 'AdminController@register');//register employee id with his/her Password
           Route::post('login', 'AdminController@login');
-//-------------------------------------------------------------------------------------
+          Route::post('employees', 'AdminController@employees');//give list of employees
             // route for approving requests api/admin/aprprove/~
             Route::group([
                 'prefix' => 'approve'
             ], function () {
-                Route::put('leave', 'AdminController@approveLeave');
-                Route::put('overtime', 'AdminController@approveOverTime');
-                Route::put('officialbusiness', 'AdminController@approveOfficialBusiness');
-                Route::put('schedule', 'AdminController@approveSchedule');
+                Route::put('employee/{id}', 'AdminController@approveEmployee');//done
+                Route::put('leave/{id}', 'AdminController@approveLeave');
+                Route::put('overtime/{id}', 'AdminController@approveOverTime');
+                Route::put('officialbusiness/{id}', 'AdminController@approveOfficialBusiness');
+                Route::put('schedule/{id}', 'AdminController@approveSchedule');
             });
+//-------------------------------------------------------------------------------------
       });
 
 

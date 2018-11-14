@@ -10,5 +10,21 @@ use Spatie\Permission\Models\Permission;
 
 class AdminController extends Controller
 {
-    //
+    public function approveEmployee(Request $request, $id)
+    {
+      $employee = \App\User::findOrFail($id);
+
+      if($employee->status==='active')
+        {
+          return response()->json([
+            'message' => 'This Employee is already active.'
+          ]);
+        }
+      $employee->status = 'active';
+      $employee->save();
+
+      return response()->json([
+        'message' => 'Employee approved!'
+      ]);
+    }
 }
