@@ -16,6 +16,14 @@ use Illuminate\Http\Request;
 Route::group([
     'prefix' => 'api'
 ], function () {
+//-------------------------------------------------------------------------------------
+      // route for employee api/admin/~
+      Route::group([
+          'prefix' => 'employee'
+      ], function () {
+          Route::post('register', 'AuthController@register');
+      });
+//-------------------------------------------------------------------------------------
       // route for admin api/superadmin/~
       Route::group([
           'prefix' => 'superadmin'
@@ -23,12 +31,14 @@ Route::group([
           Route::post('status', 'SuperAdminController@status');//make on/off admin status
           Route::get('list/admins', 'SuperAdminController@adminList');
       });
+//-------------------------------------------------------------------------------------
       // route for admin api/admin/~
       Route::group([
           'prefix' => 'admin'
       ], function () {
           Route::put('register', 'AdminController@register');//register employee id with his/her Password
           Route::post('login', 'AdminController@login');
+//-------------------------------------------------------------------------------------
             // route for approving requests api/admin/aprprove/~
             Route::group([
                 'prefix' => 'approve'
