@@ -10,6 +10,15 @@ use Spatie\Permission\Models\Permission;
 
 class AdminController extends Controller
 {
+    public function employeeList(Request $request)
+    {
+      $data = \App\User::orderBy('id', 'DESC')->paginate(5);
+
+        return response()->json([
+          'message' => $data
+        ]);
+    }
+
     public function approveEmployee(Request $request, $id)
     {
       $employee = \App\User::findOrFail($id);
