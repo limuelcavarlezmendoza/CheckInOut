@@ -15,7 +15,6 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('branch_id');
             $table->integer('employee_number');
             $table->string('fullname');
             $table->date('birthday');
@@ -24,12 +23,12 @@ class CreateUsersTable extends Migration
             $table->string('employment_status');
             $table->string('civil_status');
             $table->string('device');
-            $table->string('device_token');
-            $table->string('device_id');
+            $table->string('device_token')->default('null');
+            $table->string('device_id')->default('null');
             $table->date('date_started');
-            $table->string('status');
+            $table->string('status')->default('inactive');
             $table->string('contact_person');
-            $table->integer('contact_person_no');
+            $table->string('contact_person_no');
             $table->rememberToken();
             $table->timestamps();
         });

@@ -13,15 +13,13 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::group([
-    'prefix' => 'api'
-], function () {
 //-------------------------------------------------------------------------------------
       // route for employee api/admin/~
       Route::group([
           'prefix' => 'employee'
       ], function () {
-          Route::post('register', 'AuthController@register');
+          //Route::post('register', '\AuthController@registerEmployee');
+          Route::post('register', 'AuthController@registerEmployee');
       });
 //-------------------------------------------------------------------------------------
       // route for admin api/superadmin/~
@@ -49,7 +47,7 @@ Route::group([
                 Route::put('schedule', 'AdminController@approveSchedule');
             });
       });
-});
+
 
 /*
 Route::group([
