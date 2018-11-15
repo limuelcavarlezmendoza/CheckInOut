@@ -25,7 +25,7 @@ class EmployeeController extends Controller
       $employee = new \App\TblEmployee([
         'employee_number' => $request->employee_number,
         'device_type' => $request->device_type,
-        'status' => 'active'
+        'status' => 'waiting'
       ]);
 
       $employee->save();
