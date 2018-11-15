@@ -17,7 +17,7 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->integer('employee_id');
             $table->string('access_level_id');
-            $table->boolean('is_active')->default('inactive');
+            $table->boolean('is_active')->default(false);
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
