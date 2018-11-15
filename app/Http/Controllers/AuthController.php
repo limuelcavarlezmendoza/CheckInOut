@@ -11,42 +11,20 @@ class AuthController extends Controller
 {
     public function loginEmployee(Request $request)
     {
-      
+
     }
     public function registerEmployee(Request $request)
     {
       $request->validate([
-        'employee_number' => 'required|string',
-        'fullname' => 'required|string',
-        'birthday' => 'required|date_format:Y-m-d',
-        'email' => 'required|email',
-        'position' => 'required|string',
-        'employment_status' => 'required|string',
-        'civil_status' => 'required|string',
-        'device' => 'required|string',
-        //'device_token' => 'required|string' not required yet.
-        //'device_id' => 'required' not required yet
-        'date_started' => 'required|string',
-        //'status' => 'required|string' i dont know if employee will need to provide
-        'contact_person' => 'required|string',
-        'contact_person_no' => 'required|numeric'
+
+         'employee_number' => 'required|string|unique:users,employee_number',
+         'password' => 'required|string|confirmed',
+         'device_type' => 'required|string',
+
       ]);
 
       $employee = new User([
-        'employee_number' => $request->employee_number,
-        'fullname' => $request->fullname,
-        'birthday' => $request->birthday,
-        'email' => $request->email,
-        'position' => $request->position,
-        'employment_status' => $request->employment_status,
-        'civil_status' => $request->civil_status,
-        'device' => $request->device,
-        //'device_token' => $request->device_token not required yet.
-        //'device_id' => $request->device_id not required yet
-        'date_started' => $request->date_started,
-        'status' => 'waiting',
-        'contact_person' => $request->contact_person,
-        'contact_person_no' => $request->contact_person_no
+
       ]);
 
       $employee->save();

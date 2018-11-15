@@ -14,4 +14,9 @@ class TblAttendance extends Model
   protected $hidden = [
     'status'
   ];
+
+  public function employee()
+  {
+    return $this->belongsTo('App\TblEmployee');
+  }
 }

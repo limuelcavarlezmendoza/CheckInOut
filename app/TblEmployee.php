@@ -8,7 +8,7 @@ class TblEmployee extends Model
 {
   protected $fillable = [
       'employee_number', 'device_type', 'firebase_token', 'device_id', 'status',
-      'is_registered', 'date_added',
+      'is_registered',
   ];
 
   /**
@@ -19,4 +19,14 @@ class TblEmployee extends Model
   protected $hidden = [
       'status'
   ];
+
+  public function user()
+  {
+    return $this->belongsTo('App\User');
+  }
+
+  public function attendance()
+  {
+    return $this->hasOne('App\TblAttendance');
+  }
 }

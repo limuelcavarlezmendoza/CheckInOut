@@ -21,7 +21,6 @@ class CreateTblemployeesTable extends Migration
             $table->string('device_id')->default('null');
             $table->string('status');
             $table->boolean('is_registered')->default(false);
-            $table->date('date_added');
             $table->timestamps();
         });
     }
