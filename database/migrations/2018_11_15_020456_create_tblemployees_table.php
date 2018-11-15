@@ -15,11 +15,12 @@ class CreateTblemployeesTable extends Migration
     {
         Schema::create('tblemployees', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('user_id')->nullable();
             $table->string('employee_number');
             $table->string('device_type');
             $table->string('firebase_token')->default('null');
             $table->string('device_id')->default('null');
-            $table->string('status');
+            $table->string('status')->nullable();
             $table->boolean('is_registered')->default(false);
             $table->timestamps();
         });

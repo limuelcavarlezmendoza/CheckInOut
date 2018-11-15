@@ -6,8 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 use App\User;
+use App\TblEmployee;
 
-class AuthController extends Controller
+class EmployeeController extends Controller
 {
     public function loginEmployee(Request $request)
     {
@@ -17,14 +18,14 @@ class AuthController extends Controller
     {
       $request->validate([
 
-         'employee_number' => 'required|string|unique:users,employee_number',
-         'password' => 'required|string|confirmed',
+         'employee_number' => 'required|string|unique:TblEmployees,employee_number',
          'device_type' => 'required|string',
-
       ]);
-
-      $employee = new User([
-
+      //$ship->find(1)->captain()->save(new Captain(array('name' => 'jean Luc Picard')));
+      $employee = new \App\TblEmployee([
+        'employee_number' => $request->employee_number,
+        'device_type' => $request->device_type,
+        'status' => 'active'
       ]);
 
       $employee->save();

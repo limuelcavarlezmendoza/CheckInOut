@@ -6,8 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class TblEmployee extends Model
 {
+  //changed table name to employees
+  protected $table = 'tblemployees';
+
   protected $fillable = [
-      'employee_number', 'device_type', 'firebase_token', 'device_id', 'status',
+      'employee_number', 'user_id', 'device_type', 'firebase_token', 'device_id', 'status',
       'is_registered',
   ];
 

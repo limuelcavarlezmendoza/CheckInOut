@@ -14,12 +14,12 @@ use Illuminate\Http\Request;
 */
 
 //-------------------------------------------------------------------------------------
-      // route for employee api/admin/~
+      // route for employee api/employee/~
       Route::group([
           'prefix' => 'employee'
       ], function () {
-          //Route::post('login', 'AuthController@loginEmployee');
-          Route::post('register', 'AuthController@registerEmployee');//done
+          //Route::post('login', 'EmployeeController@loginEmployee');
+          Route::post('register', 'EmployeeController@registerEmployee');//done
       });
 //-------------------------------------------------------------------------------------
       // route for admin api/superadmin/~
@@ -36,7 +36,7 @@ use Illuminate\Http\Request;
       Route::group([
           'prefix' => 'admin'
       ], function () {
-          Route::put('register', 'AdminController@register');//register employee id with his/her Password
+          Route::post('register', 'AdminController@adminRegister');//register employee id with his/her Password
           Route::post('login', 'AdminController@adminLogin');
           Route::get('employees', 'AdminController@employeeList');//give list of employees
             // route for approving requests api/admin/aprprove/~
