@@ -18,7 +18,7 @@ use Illuminate\Http\Request;
       Route::group([
           'prefix' => 'employee'
       ], function () {
-          //Route::post('register', '\AuthController@registerEmployee');
+          //Route::post('login', 'AuthController@loginEmployee');
           Route::post('register', 'AuthController@registerEmployee');//done
       });
 //-------------------------------------------------------------------------------------
@@ -26,10 +26,10 @@ use Illuminate\Http\Request;
       Route::group([
           'prefix' => 'superadmin'
       ], function () {
-          Route::put('status/{id}', 'SuperAdminController@statusChange');//make on/off admin status
-          Route::get('admins', 'SuperAdminController@adminList');
-          Route::post('makerole', 'SuperAdminController@makeRole');
-          Route::post('deleterole', 'SuperAdminController@deleteRole');
+          Route::put('status/{id}', 'SuperAdminController@statusChange');//done
+          Route::get('admins', 'SuperAdminController@adminList');//done
+          Route::post('makerole', 'SuperAdminController@makeRole');//done
+          Route::post('deleterole', 'SuperAdminController@deleteRole');//done
       });
 //-------------------------------------------------------------------------------------
       // route for admin api/admin/~
@@ -37,7 +37,7 @@ use Illuminate\Http\Request;
           'prefix' => 'admin'
       ], function () {
           Route::put('register', 'AdminController@register');//register employee id with his/her Password
-          Route::post('login', 'AdminController@login');
+          Route::post('login', 'AdminController@adminLogin');
           Route::get('employees', 'AdminController@employeeList');//give list of employees
             // route for approving requests api/admin/aprprove/~
             Route::group([

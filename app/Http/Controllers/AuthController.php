@@ -9,6 +9,10 @@ use App\User;
 
 class AuthController extends Controller
 {
+    public function loginEmployee(Request $request)
+    {
+      
+    }
     public function registerEmployee(Request $request)
     {
       $request->validate([
@@ -40,7 +44,7 @@ class AuthController extends Controller
         //'device_token' => $request->device_token not required yet.
         //'device_id' => $request->device_id not required yet
         'date_started' => $request->date_started,
-        'status' => 'waiting', 
+        'status' => 'waiting',
         'contact_person' => $request->contact_person,
         'contact_person_no' => $request->contact_person_no
       ]);

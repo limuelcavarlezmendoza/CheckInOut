@@ -12,6 +12,19 @@ use Hash;
 
 class SuperAdminController extends Controller
 {
+    // public function __construct()
+    // {
+    //   $this->middleware(['role:superAdmin']);
+    // }
+
+    public function adminList()
+    {
+      $users = \App\User::role('admin')->orderBy('id', 'DESC')->paginate(5);
+
+      return response()->json([
+        'message' => $users
+      ]);
+    }
     public function makeRole(Request $request)
     {
       $inputRole = $request->role;

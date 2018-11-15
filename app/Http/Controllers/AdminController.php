@@ -10,7 +10,19 @@ use Spatie\Permission\Models\Permission;
 
 class AdminController extends Controller
 {
-    public function employeeList(Request $request)
+  // public function __construct()
+  // {
+  //   $this->middleware(['role:admin']);
+  // }
+    //test
+    public function adminLogin(Request $request)
+    {
+      $request->validate([
+        ''
+      ]);
+    }
+
+    public function employeeList()
     {
       $data = \App\User::orderBy('id', 'DESC')->paginate(5);
 
